@@ -215,6 +215,12 @@ document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',a
   try{await navigator.clipboard.writeText(t)}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
   b.classList.add('ok');b.querySelector('.cp').textContent='Скопировано ✓';toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),1600);
 }));
+
+/* ==== Meta Pixel: Lead по кликам ==== */
+function lead(name){ try{ fbq('track','Lead',{content_name:name}); }catch(e){} }
+document.getElementById('payBtn').addEventListener('click',()=>lead('Kaspi Pay'));
+document.getElementById('copyHalyk').addEventListener('click',()=>lead('Copy Halyk'));
+document.getElementById('copyEurasian').addEventListener('click',()=>lead('Copy Eurasian'));
 </script>
 </body>
 </html>
